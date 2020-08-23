@@ -10,5 +10,11 @@ const itemCountSpan = document.getElementById('item-count')
 const uncheckedCountSpan = document.getElementById('unchecked-count')
 
 function addTodo() {
-  alert('Boton Add TODO clickeado!')
+  //alert('Boton Add TODO clickeado!')
+    let pos = 1;
+    let node = document.createElement("LI");  // Create a <li> node
+    let i = document.createElement("INPUT");
+    i.setAttribute("type", "checkbox");
+    node.appendChild(i);
+    list.appendChild(node);     // Append <li> to <ul> with
 }
