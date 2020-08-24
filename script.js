@@ -19,13 +19,12 @@ function addTodo() {
     };
     arrTareas.push(tareaNueva);
 
-    let node = document.createElement("LI");
-    let i = document.createElement("input");
+    let node = document.createElement("LI");  // Creo un elemento <li>
+    let i = document.createElement("input"); // Creo un elemento <input type="checkbox">
     i.setAttribute("type", "checkbox");
-    i.setAttribute("onclick","uncheckedCountSpan.innerHTML = countUnchecked()");
-    var textnode = document.createTextNode(" Tarea " + arrTareas.length);
+    i.setAttribute("onclick","uncheckedCountSpan.innerHTML = countUnchecked()"); // Agreco onClick
+    var textnode = document.createTextNode(" Tarea " + arrTareas.length); // Agrego descripcion
 
-    //node.appendChild(b);
     node.appendChild(i);
     node.appendChild(textnode);
     list.appendChild(node);
@@ -40,7 +39,7 @@ function countUnchecked() {
     let cant = lis.length;
     for (var i = 0; i < cant; i++) { 
       if(lis[i].checked){
-        arrTareas[i].estado = true;
+        arrTareas[i].estado = true; // Actualizo el array con los CHECKED
         cantCH++;
       }
       //console.log(arrTareas[i]);
