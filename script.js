@@ -40,8 +40,10 @@ function countUnchecked() {
     let cant = lis.length;
     for (var i = 0; i < cant; i++) { 
       if(lis[i].checked){
+        arrTareas[i].estado = true;
         cantCH++;
       }
+      //console.log(arrTareas[i]);
     }
     return cant - cantCH;
 }
