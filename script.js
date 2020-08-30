@@ -48,11 +48,11 @@ function countUnchecked() {
         cantCH++;
       }
     }
-    showArray();
+    showArrayEnConsole();
     return cant - cantCH;
 }
 
-function showArray(){
+function showArrayEnConsole(){
   console.clear();
   for(let i = 0; i < arrTareas.length; i++){
     console.log("Estado["+i+"]= " + arrTareas[i].estado + " Desc: " + arrTareas[i].desc);
