@@ -38,10 +38,11 @@ function addTodo() {
     arrTareas.push(miTarea);
 
     span.onclick= function(){
-      let titTareaNew = prompt("Modifica el titulo: ", miTarea.desc);
+      let titTareaNew = prompt("Modifica el titulo: ", arrTareas[span.id].desc);
       let spNew = document.getElementById(span.id);
-      console.log(spNew);
-      spNew.innerHTML = titTareaNew;
+      //arrTareas[span.id].desc = titTareaNew;
+      spNew.innerHTML = arrTareas[span.id].desc = titTareaNew;
+      showArrayEnConsole();    
     }
 
     node.appendChild(inCheck);
