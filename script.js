@@ -66,11 +66,7 @@ function countUnchecked() {
       }
     }
     showArrayEnConsole();
-<<<<<<< HEAD
-    return cant - cantCH;
-=======
     return cantUnchecked;
->>>>>>> 222e37b8dde4dd7538689940953b03041a65b325
 }
 
 function showArrayEnConsole(){
