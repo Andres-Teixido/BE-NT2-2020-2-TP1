@@ -11,13 +11,18 @@ const uncheckedCountSpan = document.getElementById('unchecked-count')
 
 let arrTareas = [];
 
+class TareaNueva {
+  constructor() {
+    this.estado = false;
+    this.desc = "Tarea_" + arrTareas.length;
+  }
+}
+
 function addTodo() {
     //  Creo una tarea y la agrego en arrTareas
-    let tareaNueva = {      
-        estado: false,
-        desc: 'Tarea_' + arrTareas.length
-    };
-    arrTareas.push(tareaNueva);
+
+    miTarea = new TareaNueva();
+    arrTareas.push(miTarea);
 
     let node = document.createElement("LI");  // Creo un elemento <li>
     let i = document.createElement("input"); // Creo un elemento <input type="checkbox">
@@ -31,6 +36,8 @@ function addTodo() {
 
     itemCountSpan.innerHTML = arrTareas.length;   // Cantidad de TAREAS
     uncheckedCountSpan.innerHTML = countUnchecked();  //  Cantidad de UNCHECKED
+
+    showArray();
 }
 
 function countUnchecked() {
@@ -46,3 +53,9 @@ function countUnchecked() {
     }
     return cant - cantCH;
 }
+
+function showArray(){
+  for(let i = 0; i < arrTareas.length; i++){
+    console.log("Estado["+i+"]= " + arrTareas[i].estado + " Desc: " + arrTareas[i].desc);
+  };
+};
