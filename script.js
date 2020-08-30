@@ -14,24 +14,39 @@ let arrTareas = [];
 class TareaNueva {
   constructor() {
     this.estado = false;
-    this.desc = "Tarea_" + arrTareas.length;
+    this.desc = "";
   }
 }
 
 function addTodo() {
-    //  Creo una tarea y la agrego en arrTareas
-
+    //  Creo una tarea
     miTarea = new TareaNueva();
-    arrTareas.push(miTarea);
+    miTarea.estado = false;
 
     let node = document.createElement("LI");  // Creo un elemento <li>
-    let i = document.createElement("input"); // Creo un elemento <input type="checkbox">
-    i.setAttribute("type", "checkbox");
-    i.setAttribute("onclick","uncheckedCountSpan.innerHTML = countUnchecked()"); // Agreco onClick
-    var textnode = document.createTextNode(miTarea.desc); // Agrego descripcion
+    let inCheck = document.createElement("input"); // Creo un elemento <input type="checkbox">
+    inCheck.setAttribute("type", "checkbox");
+    inCheck.setAttribute("onclick","uncheckedCountSpan.innerHTML = countUnchecked()"); // Agreco onClick
 
-    node.appendChild(i);
-    node.appendChild(textnode);
+    let titTarea = prompt("Ingresa el titulo de la tarea: ");
+    const span = window.document.createElement('span');
+    span.id = arrTareas.length;
+    miTarea.desc = "Tarea_" + arrTareas.length + " " + titTarea;
+  
+    span.innerHTML = miTarea.desc;
+
+    arrTareas.push(miTarea);
+
+    span.onclick= function(){
+      let titTareaNew = prompt("Modifica el titulo: ", arrTareas[span.id].desc);
+      let spNew = document.getElementById(span.id);
+      //arrTareas[span.id].desc = titTareaNew;
+      spNew.innerHTML = arrTareas[span.id].desc = titTareaNew;
+      showArrayEnConsole();    
+    }
+
+    node.appendChild(inCheck);
+    node.appendChild(span);
     list.appendChild(node);
 
     itemCountSpan.innerHTML = arrTareas.length;   // Cantidad de TAREAS
@@ -39,17 +54,23 @@ function addTodo() {
 }
 
 function countUnchecked() {
-    let cantCH = 0;
+    let cantUnchecked = 0;
     let lis = document.getElementsByTagName("input");
     let cant = lis.length;
     for (var i = 0; i < cant; i++) { 
       if(lis[i].checked){
-        arrTareas[i].estado = true; // Actualizo el array con los CHECKED
-        cantCH++;
+          arrTareas[i].estado = true; // Actualizo el array con los CHECKED
+      }else{
+          arrTareas[i].estado = false; // Actualizo el array con los CHECKED
+          cantUnchecked++;
       }
     }
     showArrayEnConsole();
+<<<<<<< HEAD
     return cant - cantCH;
+=======
+    return cantUnchecked;
+>>>>>>> 222e37b8dde4dd7538689940953b03041a65b325
 }
 
 function showArrayEnConsole(){
