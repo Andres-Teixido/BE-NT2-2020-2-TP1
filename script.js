@@ -28,7 +28,7 @@ function addTodo() {
     let i = document.createElement("input"); // Creo un elemento <input type="checkbox">
     i.setAttribute("type", "checkbox");
     i.setAttribute("onclick","uncheckedCountSpan.innerHTML = countUnchecked()"); // Agreco onClick
-    var textnode = document.createTextNode(" Tarea " + arrTareas.length); // Agrego descripcion
+    var textnode = document.createTextNode(miTarea.desc); // Agrego descripcion
 
     node.appendChild(i);
     node.appendChild(textnode);
@@ -36,8 +36,6 @@ function addTodo() {
 
     itemCountSpan.innerHTML = arrTareas.length;   // Cantidad de TAREAS
     uncheckedCountSpan.innerHTML = countUnchecked();  //  Cantidad de UNCHECKED
-
-    showArray();
 }
 
 function countUnchecked() {
@@ -49,12 +47,13 @@ function countUnchecked() {
         arrTareas[i].estado = true; // Actualizo el array con los CHECKED
         cantCH++;
       }
-      //console.log(arrTareas[i]);
     }
+    showArray();
     return cant - cantCH;
 }
 
 function showArray(){
+  console.clear();
   for(let i = 0; i < arrTareas.length; i++){
     console.log("Estado["+i+"]= " + arrTareas[i].estado + " Desc: " + arrTareas[i].desc);
   };
